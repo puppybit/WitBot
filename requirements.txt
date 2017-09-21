@@ -9,7 +9,6 @@ Jinja2==2.9.6
 MarkupSafe==1.0
 prompt-toolkit==1.0.15
 pymessenger==0.0.7.0
-PyMySQL==0.7.11
 requests==2.18.4
 requests-toolbelt==0.8.0
 simplejson==3.11.1
