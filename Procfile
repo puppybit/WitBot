@@ -1,1 +1,1 @@
-web: gunicorn app:healthbot
+web: gunicorn healthbot:healthbot
