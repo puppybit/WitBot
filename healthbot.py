@@ -1,3 +1,4 @@
+#-*- coding: utf-8 -*-
 import os, sys
 from flask import Flask, request
 from utils import wit_response
@@ -44,17 +45,17 @@ def webhook():
 
           #DM for healthbot
 
-          if entity == 'intent_greeting'
-            response == "반갑습니다. 무엇을 도와드릴까요?"
+          if entity == 'intent_greeting':
+            response = "반갑습니다. 무엇을 도와드릴까요?"
 
-          if entity == 'intent_recommend' and value == 'fit_program'
-            response == "어떤 프로그램을 추천해 드릴까요?"
+          if entity == 'intent_recommend' and value == 'fit_program':
+            response = "어떤 프로그램을 추천해 드릴까요?"
 
-          if entity == 'intent_recommend' and value == 'health_acc'
-            response == "헬스와 연결 가능한 악세사리 리스트 입니다."
+          if entity == 'intent_recommend' and value == 'health_acc':
+            response = "헬스와 연결 가능한 악세사리 리스트 입니다."
 
-          if response == None
-            response == "죄송합니다. 제가 이해할수 없는 말입니다."
+          if response == None:
+            response = "죄송합니다. 제가 이해할수 없는 말입니다."
 
           bot.send_text_message(sender_id, response)
 
