@@ -56,7 +56,7 @@ def webhook():
             response = "반갑습니다. 저는 피트니스 프로그램과 헬스 악세사리를 선택하는데 도움을 드릴 수 있습니다."
 
           if entity == 'intent_recommend' and value == 'fit_program':
-            response = "당신의 헬스앱 사용 패턴을 분석하여 최적의 피트니스 프로그램을 준비하였습니다. 보시겠습니까?"
+            response = "당신의 헬스앱 사용 패턴을 분석하여 최적의 피트니스 프로그램을 준비하였습니다. 추천 프로그램을 보시겠습니까?"
 
           if entity == 'intent_recommend' and value == 'health_acc':
             response = "당신에게 추천하는 헬스 악세사리 입니다. \n 1.삼성 기어 S3 \n 2. 삼성 기어핏 3 \n Mi Smart Scales"
