@@ -4,6 +4,9 @@ from flask import Flask, request
 from utils import wit_response
 from pymessenger import Bot
 from pprint import pprint
+import random
+
+random.seed(3)
 
 app = Flask(__name__)
 
@@ -22,7 +25,6 @@ def verify():
 @app.route("/", methods=['POST'])
 def webhook():
   data = request.get_json()
-#  log(data)
 
   if data['object'] == 'page':
     for entry in data['entry']:
@@ -31,6 +33,8 @@ def webhook():
           # IDs
           sender_id = messaging_event['sender']['id']
           recipient_id = messaging_event['recipient']['id']
+
+          messaging_text = None
 
           if messaging_event.get('message'):
             if 'text' in messaging_event['message']:
@@ -41,18 +45,33 @@ def webhook():
           #Echo
           #response = messaging_text
 
+          response = None
           entity, value = wit_response(messaging_text)
+
+          print(entity)
 
           #DM for healthbot
 
           if entity == 'intent_greeting':
-            response = "반갑습니다. 무엇을 도와드릴까요?"
+            response = "반갑습니다. 저는 피트니스 프로그램과 헬스 악세사리를 선택하는데 도움을 드릴 수 있습니다."
 
           if entity == 'intent_recommend' and value == 'fit_program':
-            response = "어떤 프로그램을 추천해 드릴까요?"
+            response = "당신의 헬스앱 사용 패턴을 분석하여 최적의 피트니스 프로그램을 준비하였습니다. 보시겠습니까?"
 
           if entity == 'intent_recommend' and value == 'health_acc':
-            response = "헬스와 연결 가능한 악세사리 리스트 입니다."
+            response = "당신에게 추천하는 헬스 악세사리 입니다. \n 1.삼성 기어 S3 \n 2. 삼성 기어핏 3 \n Mi Smart Scales"
+
+          if entity == 'intent_positive':
+            type = random.randrange(1,3)
+            if type == 1:
+              response = "달리기를 자주하셨군요. 오늘부터 10 킬로미터 달리기 프로그램을 시작하세요"
+            elif type == 2:
+              response = "다이어트에 관심이 많으시군요. 체중 감량 프로그램 중 기초부터 시작하는 적응 훈련을 해보세요."
+            elif type == 3:
+              response = "당신에게 필요한 근지구력 강화하기 프로그램을 준비하였습니다."
+
+          if entity == 'intent_negative':
+            response = "네 알겠습니다."
 
           if response == None:
             response = "죄송합니다. 제가 이해할수 없는 말입니다."
