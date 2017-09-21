@@ -50,7 +50,6 @@ def webhook():
 
           print(entity)
           print(value)
-          print(messaging_text)
 
 
           #DM for healthbot
