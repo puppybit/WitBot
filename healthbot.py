@@ -49,6 +49,7 @@ def webhook():
           entity, value = wit_response(messaging_text)
 
           print(entity)
+          print(value)
 
           #DM for healthbot
 
@@ -64,7 +65,7 @@ def webhook():
           if entity == 'intent_positive':
             type = random.randrange(1,3)
             if type == 1:
-              response = "달리기를 자주하셨군요. 10 킬로미터 달리기 프로그램 해보실래요?"
+              response = "달리기를 자주하셨군요. 10 킬로미터 달리기 프로그램을 바로 시작하세요"
             elif type == 2:
               response = "다이어트에 관심이 많으시군요. 체중 감량 프로그램 중 기초부터 시작하는 적응 훈련을 해보세요."
             elif type == 3:
