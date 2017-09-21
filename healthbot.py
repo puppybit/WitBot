@@ -49,8 +49,6 @@ def webhook():
           entity, value = wit_response(messaging_text)
 
           print(entity)
-          print(value)
-
 
           #DM for healthbot
 
@@ -58,15 +56,15 @@ def webhook():
             response = "반갑습니다. 저는 피트니스 프로그램과 헬스 악세사리를 선택하는데 도움을 드릴 수 있습니다."
 
           if entity == 'intent_recommend' and value == 'fit_program':
-            response = "당신의 헬스앱 사용 패턴을 분석하여 최적의 피트니스 프로그램을 준비하였습니다. 추천 프로그램을 보시겠습니까?"
+            response = "당신의 헬스앱 사용 패턴을 분석하여 최적의 피트니스 프로그램을 준비하였습니다. 보시겠습니까?"
 
           if entity == 'intent_recommend' and value == 'health_acc':
-            response = "당신에게 추천하는 헬스 악세사리 입니다. \n 1.삼성 기어 S3 \n 2. 삼성 기어핏 3 \n Mi Smart Scales"
+            response = "추천하는 헬스 악세사리 입니다. \n 1.삼성 기어 S3 \n 2. 삼성 기어핏 \n 3. Mi Smart Scales"
 
           if entity == 'intent_positive':
             type = random.randrange(1,3)
             if type == 1:
-              response = "달리기를 자주하셨군요. 오늘부터 10 킬로미터 달리기 프로그램을 시작하세요"
+              response = "달리기를 자주하셨군요. 10 킬로미터 달리기 프로그램 해보실래요?"
             elif type == 2:
               response = "다이어트에 관심이 많으시군요. 체중 감량 프로그램 중 기초부터 시작하는 적응 훈련을 해보세요."
             elif type == 3:
