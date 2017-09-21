@@ -49,6 +49,9 @@ def webhook():
           entity, value = wit_response(messaging_text)
 
           print(entity)
+          print(value)
+          print(messaging_text)
+
 
           #DM for healthbot
 
